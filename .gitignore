@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# Скрываем секреты Firebase и .env
+.env
+lib/firebase_options.dart

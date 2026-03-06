@@ -1,36 +1,43 @@
-# Ykt Hub 🐾
+# Ykt Hub
 
 **Ykt Hub** is a mobile application and Telegram bot designed for residents of Yakutsk and the Russian Far East.  
 The project combines city and regional services into a single, convenient tool.
 
 ---
 
-## 🌟 Project Highlights
+## Project Highlights
 
-- ❄ **Extreme North & Arctic Conditions** — weather forecasts account for harsh northern climate.
-- 🤖 **Telegram Bot** — fast access to information, convenient for parents and schoolchildren.
-- ⛴ **Ferries across Lena River** — schedules for the world's widest river, a unique local feature.
-- 💱 **Currencies** — Chinese Yuan reflected as primary currency for the Far East.
-- ✈️ **Flights & Tickets** — sorting for subsidized flights, checks residency documents.
-- 🌨 **Weather Visuals** — animated snow and stars in the 5-day forecast block.
+- Extreme North & Arctic Conditions — weather forecasts account for harsh northern climate.
+- Telegram Bot — provides instant access to weather, currency rates, ferries, flights, and news; helps users interact with Ykt Hub even without opening the app.
+- Ferries across Lena River — schedules for the world's widest river, a unique local feature.
+- Currencies — Chinese Yuan reflected as primary currency for the Far East.
+- Flights & Tickets — sorting for subsidized flights, checks residency documents.
+- Weather Visuals — animated snow and stars in the 5-day forecast block.
 
 ---
 
-## 📱 Project Structure
+## Project Structure
 
 
 YktHub/
 ├── flutter_app/ # Flutter mobile application
+│ ├── lib/
+│ ├── assets/
+│ └── pubspec.yaml
 ├── backend/ # Mini-backend providing API for bot and Flutter app
+│ └── api.py
 ├── bot/ # Telegram bot (Python + Aiogram)
-├── requirements.txt # Python dependencies
+│ ├── main.py
+│ ├── handlers/
+│ ├── keyboards/
+│ └── requirements.txt
 ├── .gitignore
 └── README.md
 
 
 ---
 
-## 🛠 Technologies & Tools
+## Technologies & Tools
 
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)  
 [![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)  
@@ -40,22 +47,25 @@ YktHub/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/username/yakutsk_hub.git
+git clone https://github.com/maria-popova-dev/yakutsk_hub.git
 
 Configure .env with your Firebase keys (local only)
 
 Run the Flutter app:
 
+cd flutter_app
 flutter run
 
 Run the Telegram bot:
 
+cd bot
 python main.py
-🎨 Screenshots & Demo
+Screenshots & Demo
 Mobile App Screenshots
 
 
@@ -65,15 +75,41 @@ Telegram Bot Demo
 
 Optional: Video Demo
 
+Watch Video
+
 Animated snow and stars in the 5-day forecast make the interface visually engaging.
 
-👩‍💻 Project Purpose
+What I Learned
 
-Showcase skills in Flutter, Python, backend, API integration
+Flutter: state management, navigation, UI/UX
 
-Build a useful service for local residents
+Python: building Telegram bots with Aiogram
 
-Serve as a portfolio project to impress potential employers or freelance clients
+Firebase: authentication, Firestore, storage
+
+REST APIs: integration, JSON handling
+
+Git/GitHub: repository management and professional workflow
+
+License
+
+This project is licensed under the MIT License. See the LICENSE
+ file for details.
+
+About Me
+
+Maria Popova | Flutter Developer & Aspiring Full-Stack Developer
+
+Passionate about building useful apps for local communities.
+Constantly learning Flutter, Python, and backend development (Java/Kotlin in future).
+Open to collaboration and opportunities.
+
+Contact:
+📧 maria.popova.dev@outlook.com
+
+🐙 GitHub: maria-popova-dev
+
+"The journey of a thousand miles begins with a single step."
 
 
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "307950665628",
+    "project_id": "yakutskhub",
+    "storage_bucket": "yakutskhub.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307950665628:android:a1778922c2a394f006d259",
+        "android_client_info": {
+          "package_name": "com.example.yakutsk_hub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWnvHmQDTdM-fcdHuu8bEIs0qsvqEWg3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

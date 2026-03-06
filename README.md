@@ -1,16 +1,22 @@
-# Ykt Hub 🏙️
+# Ykt Hub 🐾
 
-**A comprehensive project for Yakutsk residents** — a Flutter mobile app complemented by a Telegram bot for quick access to local services such as weather, currency, news, ferries, and flights.
-
-This project demonstrates:
-- Flutter mobile development (Dart)
-- Python backend and Telegram bot development (Aiogram)
-- API integration and asynchronous data handling
-- Modular and maintainable project structure
+**Ykt Hub** is a mobile application and Telegram bot designed for residents of Yakutsk and the Russian Far East.  
+The project combines city and regional services into a single, convenient tool.
 
 ---
 
-## 📂 Project Structure
+## 🌟 Project Highlights
+
+- ❄ **Extreme North & Arctic Conditions** — weather forecasts account for harsh northern climate.
+- 🤖 **Telegram Bot** — fast access to information, convenient for parents and schoolchildren.
+- ⛴ **Ferries across Lena River** — schedules for the world's widest river, a unique local feature.
+- 💱 **Currencies** — Chinese Yuan reflected as primary currency for the Far East.
+- ✈️ **Flights & Tickets** — sorting for subsidized flights, checks residency documents.
+- 🌨 **Weather Visuals** — animated snow and stars in the 5-day forecast block.
+
+---
+
+## 📱 Project Structure
 
 
 YktHub/
@@ -24,92 +30,50 @@ YktHub/
 
 ---
 
-## ⚡ Features
+## 🛠 Technologies & Tools
 
-### Flutter App
-- Current and 5-day weather forecast for Yakutsk
-- Real-time currency rates
-- News feed and event listings
-- Ferries and flight information
-
-### Telegram Bot
-- Mirrors the same data as the Flutter app
-- Personalized greetings by username
-- Command and button handling via Aiogram
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)  
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)  
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)  
+[![Aiogram](https://img.shields.io/badge/Aiogram-2CA2F2?style=for-the-badge)](https://docs.aiogram.dev/)  
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 
 ---
 
-## 🛠️ Technologies
+## 🚀 How to Run
 
-[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat&logo=flutter&logoColor=white)](https://flutter.dev/)  
-[![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white)](https://dart.dev/)  
-[![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)  
-[![Aiogram](https://img.shields.io/badge/Aiogram-00C1D4?style=flat)](https://docs.aiogram.dev/en/latest/)  
-[![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-ffcc00?style=flat)](https://openweathermap.org/)  
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/)
-
----
-
-## 🚀 Installation & Setup
-
-### 1️⃣ Flutter Application
+1. Clone the repository:
 ```bash
-cd flutter_app
-flutter pub get
+git clone https://github.com/username/yakutsk_hub.git
+
+Configure .env with your Firebase keys (local only)
+
+Run the Flutter app:
+
 flutter run
-2️⃣ Telegram Bot
 
-Install Python dependencies:
+Run the Telegram bot:
 
-pip install -r requirements.txt
+python main.py
+🎨 Screenshots & Demo
+Mobile App Screenshots
 
-Create a .env file in the project root:
 
-TELEGRAM_TOKEN=your_bot_token
-WEATHER_API=your_weather_api_key
 
-Run the bot:
 
-python bot/main.py
+Telegram Bot Demo
 
-⚠️ Do not commit your tokens. .env is ignored via .gitignore.
+Optional: Video Demo
 
-📌 Screenshots
-Flutter App
-Main Screen	Weather Forecast	Currency Rates
+Animated snow and stars in the 5-day forecast make the interface visually engaging.
 
-	
-	
+👩‍💻 Project Purpose
 
-Screenshots show the main dashboard, weather, and currency screens.		
-Telegram Bot
-Bot Start	Bot Weather
+Showcase skills in Flutter, Python, backend, API integration
 
-	
+Build a useful service for local residents
 
-Bot greeting and showing weather forecast.	
-
-💡 Tip: Save screenshots in flutter_app/assets/screenshots/ and bot/assets/screenshots/ with the same filenames as above.
-
-🎯 Purpose
-
-Showcase Flutter mobile development
-
-Demonstrate integration with Python backend and Telegram bot
-
-Highlight full-stack development skills for potential employers
-
-Ready for deployment and further feature expansion
-
-🔗 Future Improvements
-
-Connect Flutter app directly to backend via REST API
-
-Add user authentication and personalized settings
-
-Implement caching for faster bot responses
-
-Expand services (local transport, restaurants, events)
+Serve as a portfolio project to impress potential employers or freelance clients
 
 
 

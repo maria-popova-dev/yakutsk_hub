@@ -1,115 +1,174 @@
-# Ykt Hub
+# YktHub — Yakutsk Local Services Platform
 
-**Ykt Hub** is a mobile application and Telegram bot designed for residents of Yakutsk and the Russian Far East.  
-The project combines city and regional services into a single, convenient tool.
+YktHub is a mobile application designed for residents of Yakutsk and the Sakha Republic (Yakutia).  
+The project integrates a Flutter mobile app, a Python backend, and a Telegram bot to provide useful everyday services adapted to the extreme conditions of the Arctic region.
+
+The platform focuses on solving real local problems such as extreme winter conditions, transportation across the Lena River, regional travel specifics, and local information services.
 
 ---
 
-## Project Highlights
+## Key Features
 
-- Extreme North & Arctic Conditions — weather forecasts account for harsh northern climate.
-- Telegram Bot — provides instant access to weather, currency rates, ferries, flights, and news; helps users interact with Ykt Hub even without opening the app.
-- Ferries across Lena River — schedules for the world's widest river, a unique local feature.
-- Currencies — Chinese Yuan reflected as primary currency for the Far East.
-- Flights & Tickets — sorting for subsidized flights, checks residency documents.
-- Weather Visuals — animated snow and stars in the 5-day forecast block.
+• Weather information with snowfall animation and star effects  
+• School **actirovka notifications** (school cancellation due to extreme cold)  
+• Ferry schedule across the **Lena River** — one of the widest rivers in the world  
+• Flight ticket search with **subsidized ticket sorting**  
+• Currency exchange including **Chinese Yuan**, important for the Russian Far East  
+• Telegram bot integration for quick access to services  
+• Local news updates
+
+The project demonstrates how technology can be adapted for **Arctic and Far North living conditions**.
+
+---
+
+## Architecture
+
+```
+Flutter Mobile App
+        │
+        │ REST API
+        ▼
+Python Backend
+        │
+        ▼
+Telegram Bot (Aiogram)
+```
+
+The mobile app communicates with a lightweight Python backend which also serves the Telegram bot.
+
+---
+
+## Tech Stack
+
+### Mobile
+Flutter  
+Dart  
+Firebase  
+Cubit (Flutter Bloc State Management)
+
+### Backend
+Python  
+REST API
+
+### Telegram Bot
+Python  
+Aiogram
+
+### Other Tools
+Git  
+GitHub
 
 ---
 
 ## Project Structure
 
-
-YktHub/
-├── flutter_app/ # Flutter mobile application
-│ ├── lib/ # Dart code
-│ ├── assets/ # Images, icons, fonts
-│ └── pubspec.yaml # Flutter project configuration
-├── backend/ # Mini-backend providing API for bot and Flutter app
-│ └── api.py
-├── bot/ # Telegram bot (Python + Aiogram)
-│ ├── main.py
-│ ├── handlers/ # Bot command handlers
-│ ├── keyboards/ # Reply keyboards
-│ └── requirements.txt # Python dependencies
+```
+YktHub
+│
+├── flutter_app
+│   ├── lib
+│   ├── assets
+│   └── pubspec.yaml
+│
+├── backend
+│   └── api.py
+│
+├── bot
+│   ├── main.py
+│   ├── handlers
+│   ├── keyboards
+│   └── requirements.txt
+│
 ├── .gitignore
 └── README.md
-
-
----
-
-## Technologies & Tools
-
-[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)  
-[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)  
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)  
-[![Aiogram](https://img.shields.io/badge/Aiogram-2CA2F2?style=for-the-badge)](https://docs.aiogram.dev/)  
-[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+```
 
 ---
 
-## How to Run
+## Screenshots
 
-1. Clone the repository:
+Screenshots of the application will be added here.
 
-```bash
+Example sections:
+
+Weather screen  
+Flights search  
+Currency exchange  
+Ferry schedule  
+Telegram bot interaction
+
+You can also include a demo video of the snowfall animation and weather UI.
+
+---
+
+## How to Run the Project
+
+### Clone repository
+
+```
 git clone https://github.com/maria-popova-dev/yakutsk_hub.git
+```
 
-Configure .env with your Firebase keys (local only)
+### Flutter application
 
-Run the Flutter app:
-
+```
 cd flutter_app
+flutter pub get
 flutter run
+```
 
-Run the Telegram bot:
+### Telegram bot
 
+```
 cd bot
+pip install -r requirements.txt
 python main.py
-Screenshots & Demo
-Mobile App Screenshots
+```
 
+### Backend API
 
+```
+cd backend
+python api.py
+```
 
+---
 
-Telegram Bot Demo
+## What I Learned
 
-Optional: Video Demo
+• Building a full Flutter mobile application  
+• Using Firebase services in mobile apps  
+• State management with Cubit (Flutter Bloc)  
+• Creating a Telegram bot with Aiogram  
+• Designing REST APIs with Python  
+• Integrating mobile apps with backend services  
+• Structuring multi-component projects
 
-Watch Video
+---
 
-Animated snow and stars in the 5-day forecast make the interface visually engaging.
+## About Me
 
-What I Learned
+Maria Popova  
+Flutter Developer | Year-Long Program Graduate
 
-Flutter: state management, navigation, UI/UX
+Passionate about creating mobile applications and constantly learning new technologies.
 
-Python: building Telegram bots with Aiogram
-
-Firebase: authentication, Firestore, storage
-
-REST APIs: integration, JSON handling
-
-Git/GitHub: repository management and professional workflow
-
-License
-
-This project is licensed under the MIT License. See the LICENSE
- file for details.
-
-About Me
-
-Maria Popova | Flutter Developer & Aspiring Full-Stack Developer
-
-Passionate about building useful apps for local communities.
-Constantly learning Flutter, Python, and backend development (Java/Kotlin in future).
-Open to collaboration and opportunities.
+Open to collaboration and new opportunities.
 
 Contact:
-📧 maria.popova.dev@outlook.com
 
-🐙 GitHub: maria-popova-dev
+Email: maria.popova.dev@outlook.com  
+GitHub: https://github.com/maria-popova-dev
 
-💬 Telegram: @YourTelegramUsername
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Quote
 
 "The journey of a thousand miles begins with a single step."
 

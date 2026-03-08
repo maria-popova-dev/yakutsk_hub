@@ -10,6 +10,7 @@ import '../widgets/smart_fox_assistant.dart';
 import 'ferry_screen.dart';
 import 'tickets_screen.dart';
 import 'banks_screen.dart';
+import 'summary_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -186,6 +187,17 @@ class _MainScreenState extends State<MainScreen> with SingleTickerProviderStateM
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(children: [
+          HubWidgets.buildBigCard(
+            'ОПЕРАТИВНЫЙ ШТАБ',
+            'Сводка: Паромы • Погода • Билеты',
+            Icons.location_city,
+            const Color(0xFF5AC8FA), // Приятный голубой цвет для штаба
+                () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SummaryScreen()) // Твой новый экран
+            ),
+          ),
+          const SizedBox(height: 18),
           HubWidgets.buildBigCard('АВИАБИЛЕТЫ', 'Субсидированные рейсы', Icons.flight_takeoff, const Color(0xFF34C759),
                   () => Navigator.push(context, MaterialPageRoute(builder: (c) => const TicketsPage()))),
           const SizedBox(height: 18),

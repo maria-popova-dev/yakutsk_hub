@@ -23,15 +23,19 @@ The project demonstrates how technology can be adapted for **Arctic and Far Nort
 
 ## Architecture
 
-```
-Flutter Mobile App
-        │
-        │ REST API
-        ▼
-Python Backend
-        │
-        ▼
-Telegram Bot (Aiogram)
+The project follows a **Single Source of Truth** architecture, where the Java backend centralizes all business logic and data storage.
+
+```text
+      Flutter App 📱       Telegram Bot 🤖
+            │                   │
+            └───────┬───────────┘
+                    ▼
+          Java Backend ☕ (Spring Boot)
+                    │
+            ┌───────┴───────┐
+            ▼               ▼
+      H2 Database 📁   Python Scrapers 🐍
+
 ```
 
 The mobile app communicates with a lightweight Python backend which also serves the Telegram bot.
@@ -40,23 +44,28 @@ The mobile app communicates with a lightweight Python backend which also serves 
 
 ## Tech Stack
 
-### Mobile
-Flutter  
+### Mobile (Flutter)
 Dart  
 Firebase  
 Cubit (Flutter Bloc State Management)
+fl_chart (Data Visualization)
 
-### Backend
-Python  
-REST API
+### Backend Core (Java)
+Java 17  
+Spring Boot 3  
+Spring Data JPA  
+H2 Database (Persistent)
 
-### Telegram Bot
-Python  
-Aiogram
+### Automation & Bot (Python)
+Python 3.10  
+Aiogram 3.x  
+REST API  
+Pytz (Timezones)
 
 ### Other Tools
 Git  
 GitHub
+Postman
 
 ---
 
@@ -65,22 +74,20 @@ GitHub
 ```
 YktHub
 │
-├── flutter_app
-│   ├── lib
-│   ├── assets
-│   └── pubspec.yaml
+├── ☕ java_backend (Spring Boot Core)
+│   ├── src/main/java/.../backend  # API, Holidays & Business Logic
+│   ├── resources/application.properties # DB & Server Config
+│   └── yakutsk_db.mv.db           # Persistent H2 Database File
 │
-├── backend
-│   └── api.py
+├── 🐍 python_services (Bot & Scrapers)
+│   ├── bot/handlers               # Telegram command logic
+│   ├── bot/keyboards/menu.py      # Keyboard layouts
+│   └── backend/test_*.py          # Python scrapers (S7, News)
 │
-├── bot
-│   ├── main.py
-│   ├── handlers
-│   ├── keyboards
-│   └── requirements.txt
-│
-├── .gitignore
-└── README.md
+└── 📱 flutter_app (Mobile Client)
+    ├── lib/screens                # UI: YKT LIVE & Summary
+    └── lib/widgets                # Neon UI & Price Charts
+
 ```
 
 ---
@@ -97,7 +104,7 @@ Currency exchange
 Ferry schedule  
 Telegram bot interaction
 
-You can also include a demo video of the snowfall animation and weather UI.
+A demo video of the snowfall animation and weather UI.
 
 ---
 
@@ -137,12 +144,15 @@ python api.py
 ## What I Learned
 
 • Building a full Flutter mobile application  
-• Using Firebase services in mobile apps  
+• Visualizing analytical data with Neon UI and fl_chart  
 • State management with Cubit (Flutter Bloc)  
-• Creating a Telegram bot with Aiogram  
-• Designing REST APIs with Python  
-• Integrating mobile apps with backend services  
-• Structuring multi-component projects
+• Creating a professional Java Spring Boot backend  
+• Implementing persistent storage with H2 File Database  
+• Developing an asynchronous Telegram bot with Aiogram  
+• Automating data collection with Python scrapers  
+• Synchronizing mobile apps and bots via a unified REST API  
+• Adapting digital solutions for Arctic conditions (Aktirovka, Timezones)  
+• Structuring complex multi-component (Java, Python, Flutter) projects
 
 ---
 

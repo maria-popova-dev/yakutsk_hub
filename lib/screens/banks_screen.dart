@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../models/bank_rate_model.dart'; // Твоя вынесенная модель
+import '../models/bank_rate_model.dart';
 
 class BanksPage extends StatelessWidget {
   const BanksPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // 1. ДАННЫЕ (Имитация данных из банков Якутска)
     final List<BankRate> banks = [
       BankRate(name: 'АЛМАЗЭРГИЭНБАНК', usd: 92.8, eur: 98.4, cny: 12.8),
       BankRate(name: 'СОЛИД БАНК', usd: 92.9, eur: 98.5, cny: 12.9),
@@ -17,13 +16,8 @@ class BanksPage extends StatelessWidget {
       BankRate(name: 'АТБ', usd: 93.9, eur: 99.6, cny: 13.5),
       BankRate(name: 'СБЕРБАНК', usd: 94.5, eur: 101.2, cny: 13.8),
     ];
-
-    // 2. АЛГОРИТМ: Сортируем список (самый дешевый USD — вверху)
     banks.sort((a, b) => a.usd.compareTo(b.usd));
-
-    // Находим минимальный курс для визуального выделения (isBest)
     final double bestUsd = banks.first.usd;
-
     return Scaffold(
       backgroundColor: const Color(0xFF0D1117),
       appBar: AppBar(
@@ -50,8 +44,6 @@ class BanksPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-
-          // Используем ListView.builder для эффективного отображения списка
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -59,7 +51,6 @@ class BanksPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final bank = banks[index];
                 final bool isBest = bank.usd == bestUsd;
-
                 return _bankCard(
                     bank.name,
                     '${bank.usd} ₽',
@@ -70,7 +61,6 @@ class BanksPage extends StatelessWidget {
               },
             ),
           ),
-
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 20),
             child: Opacity(
@@ -86,8 +76,6 @@ class BanksPage extends StatelessWidget {
       ),
     );
   }
-
-  // Виджет одной карточки банка
   Widget _bankCard(String name, String usd, String eur, String cny, bool isBest) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
@@ -95,9 +83,8 @@ class BanksPage extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF1C2128),
         borderRadius: BorderRadius.circular(24),
-        // Подсвечиваем лучший курс фиолетовой рамкой
-        border: isBest ? Border.all(color: const Color(0xFF5856D6), width: 2) : null,
-      ),
+        border: Border.all(color: isBest ? const Color(0xFF5856D6) : Colors.transparent, width: 2,
+      )),
       child: Column(
         children: [
           Row(
@@ -124,8 +111,6 @@ class BanksPage extends StatelessWidget {
       ),
     );
   }
-
-  // Маленький блок валюты внутри карточки
   Widget _currencySmall(String label, String value, bool highlight) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

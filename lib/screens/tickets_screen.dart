@@ -14,7 +14,6 @@ class TicketsPage extends StatefulWidget {
 class _TicketsPageState extends State<TicketsPage> {
   bool showOnlySubsidized = false;
 
-  // Виджет шкалы прогресса (внутри стейта для доступа к context)
   Widget _buildSubsidiesProgress(int used) {
     double progress = (used / 4).clamp(0.0, 1.0);
     return Container(
@@ -118,25 +117,20 @@ Widget _ticketItem(BuildContext context, Ticket ticket, {bool isInsidePrinter = 
 
   return GestureDetector(
     onTap: isInsidePrinter ? null : () {
-      // 1. Узнаем, сколько субсидий уже потрачено
       final int currentUsed = context.read<TicketsCubit>().state.usedSubsidies;
       if (isSub) {
-        // 2. Если это субсидия, проверяем лимит
         if (currentUsed < 4) {
           _showFoxReminder(context);
           context.read<TicketsCubit>().buyTicket(ticket);
           _showTicketPrinter(context, ticket);
         } else {
-          // Если 4 и больше — только вызываем логику (для ошибки), без принтера
           context.read<TicketsCubit>().buyTicket(ticket);
         }
       } else {
-        // 3. Обычный билет — покупаем и печатаем всегда
         context.read<TicketsCubit>().buyTicket(ticket);
         _showTicketPrinter(context, ticket);
       }
-    }, // Не забудь эту запятую и скобку!
-
+    },
     child: Stack(
       clipBehavior: Clip.none,
       children: [
@@ -165,8 +159,6 @@ Widget _ticketItem(BuildContext context, Ticket ticket, {bool isInsidePrinter = 
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Row(children: List.generate(25, (index) => Expanded(child: Container(margin: const EdgeInsets.symmetric(horizontal: 2), height: 1, color: Colors.white10)))),
               ),
-
-              // НИЖНЯЯ ЧАСТЬ: QR и Цена + Кнопка
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -183,7 +175,6 @@ Widget _ticketItem(BuildContext context, Ticket ticket, {bool isInsidePrinter = 
                         ),
                       ),
                       const SizedBox(height: 6),
-                      // Та самая Кнопка-индикатор
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
@@ -216,7 +207,6 @@ Widget _ticketItem(BuildContext context, Ticket ticket, {bool isInsidePrinter = 
     ),
   );
 }
-
 
 void _showFoxReminder(BuildContext context) {
   showDialog(

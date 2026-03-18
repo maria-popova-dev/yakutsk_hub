@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 
 class HubWidgets {
-  // Вспомогательный метод для "яблочной" подложки иконки
   static Widget _buildIconBadge(IconData icon, Color color) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15), // Мягкий блик
+        color: Colors.white.withOpacity(0.15),
         shape: BoxShape.circle,
       ),
       child: Icon(icon, size: 26, color: Colors.white),
     );
   }
-
-  // Карточка валюты (маленький элемент)
   static Widget currItem(String code, String val) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -21,8 +18,6 @@ class HubWidgets {
       Text(val, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w900)),
     ],
   );
-
-  // Широкая карточка (Валюты)
   static Widget buildWideCard(String title, String v1, String v2, String v3, IconData icon, Color color) => Container(
     width: double.infinity, height: 125,
     decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(30),
@@ -43,8 +38,6 @@ class HubWidgets {
       ]),
     ]),
   );
-
-  // Большая карточка (Авиа, Афиша)
   static Widget buildBigCard(String title, String subtitle, IconData icon, Color color, VoidCallback? onTap) => GestureDetector(
     onTap: onTap,
     child: Container(
@@ -54,7 +47,7 @@ class HubWidgets {
           BoxShadow(
               color: color.withOpacity(0.3),
               blurRadius: 15,
-              offset: const Offset(0, 8) // Тень падает вниз
+              offset: const Offset(0, 8)
           )
         ],
       ),
@@ -72,8 +65,6 @@ class HubWidgets {
       ]),
     ),
   );
-
-  // Маленькая карточка (Новости)
   static Widget buildSmallCard(String title, String value, IconData icon, Color color, VoidCallback? onTap) => GestureDetector(
     onTap: onTap,
     child: Container(

@@ -9,12 +9,14 @@ class WeatherPage extends StatelessWidget {
   final String temp;
   final String feelsLike;
   final bool isAktirovka;
+  final bool isSnowing;
 
   const WeatherPage({
     super.key,
     required this.temp,
     required this.feelsLike,
     required this.isAktirovka,
+    required this.isSnowing,
   });
 
   @override
@@ -35,8 +37,6 @@ class WeatherPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-
-          /// 🌌 ФОН
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -48,42 +48,32 @@ class WeatherPage extends StatelessWidget {
               ),
             ),
           ),
-
-          /// 🌌 СЕВЕРНОЕ СИЯНИЕ
           if (isNight)
             const Positioned.fill(
               child: AuroraBackground(),
             ),
-
-          /// ☁️ ОБЛАКА
           Positioned(
             top: 150,
             right: -100,
             child: _blurCircle(400, Colors.blue.withOpacity(0.2)),
           ),
-
           Positioned(
             top: 300,
             left: -50,
             child: _blurCircle(300, Colors.black.withOpacity(0.3)),
           ),
-
-          /// 🌫 BLUR
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
               child: Container(color: Colors.transparent),
             ),
           ),
-
-          /// ⭐ ЗВЕЗДЫ
           if (isNight)
             ...List.generate(
               40,
                   (index) => _BlinkingStar(index: index),
             ),
-
-          /// ❄️ СНЕГ (3D)
+          if (isSnowing)
           Positioned.fill(
             child: IgnorePointer(
               child: Opacity(
@@ -92,15 +82,12 @@ class WeatherPage extends StatelessWidget {
               ),
             ),
           ),
-
-          /// 📱 UI
           SafeArea(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   if (isAktirovka) _buildAktirovkaBanner(),
                   const SizedBox(height: 30),
-
                   Text(
                     'ЯКУТСК',
                     style: GoogleFonts.inter(
@@ -110,7 +97,6 @@ class WeatherPage extends StatelessWidget {
                       letterSpacing: 2,
                     ),
                   ),
-
                   Text(
                     temp,
                     style: GoogleFonts.inter(
@@ -119,7 +105,6 @@ class WeatherPage extends StatelessWidget {
                       fontWeight: FontWeight.w100,
                     ),
                   ),
-
                   Text(
                     currentTemp < -35 ? 'Ледяной туман' : 'Ясно',
                     style: const TextStyle(
@@ -127,9 +112,7 @@ class WeatherPage extends StatelessWidget {
                       fontSize: 20,
                     ),
                   ),
-
                   const SizedBox(height: 10),
-
                   Text(
                     'Ощущается как $feelsLike',
                     style: const TextStyle(
@@ -137,9 +120,7 @@ class WeatherPage extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-
                   const SizedBox(height: 40),
-
                   _buildDetailGrid(),
                 ],
               ),
@@ -222,7 +203,6 @@ class WeatherPage extends StatelessWidget {
   }
 }
 
-/// ⭐ МЕРЦАЮЩИЕ ЗВЕЗДЫ
 class _BlinkingStar extends StatefulWidget {
   final int index;
 

@@ -14,12 +14,10 @@ class _SmartFoxAssistantState extends State<SmartFoxAssistant> with SingleTicker
   @override
   void initState() {
     super.initState();
-    // Анимация "дыхания"
     _controller = AnimationController(
       duration: const Duration(seconds: 2),
       vsync: this,
     )..repeat(reverse: true);
-
     _animation = Tween<double>(begin: 1.0, end: 1.1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
@@ -32,7 +30,6 @@ class _SmartFoxAssistantState extends State<SmartFoxAssistant> with SingleTicker
       "Курс валют сегодня интересный, слежу внимательно! 💸",
       "По моим расчетам, пора пить горячий чай! ☕",
       "В Хатассах всё спокойно, я всё вижу! 🚢",
-      "Доченька молодец, что попросила очки для меня! Теперь я вижу всё! 🦊👓"
     ];
 
     final randomPhrase = (phrases..shuffle()).first;
@@ -85,11 +82,10 @@ class _SmartFoxAssistantState extends State<SmartFoxAssistant> with SingleTicker
             radius: 28,
             child: ClipOval(
               child: Image.asset(
-                "assets/images/fox.png", // Твоя картинка в очках
+                "assets/images/fox.png",
                 fit: BoxFit.cover,
                 width: 50,
                 height: 50,
-                // Если картинка вдруг не подгрузится, покажем эмодзи в очках
                 errorBuilder: (context, error, stackTrace) =>
                 const Text("🤓", style: TextStyle(fontSize: 32)),
               ),

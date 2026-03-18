@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+    <string>Лисичка хочет увидеть название лекарства, чтобы найти его в аптеках Якутска.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Нам нужен доступ к галерее, если вы захотите загрузить фото рецепта.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Микрофон не используется, но он может потребоваться библиотеке камеры.</string>
 	<key>LSApplicationQueriesSchemes</key>
     <array>
       <string>tel</string>

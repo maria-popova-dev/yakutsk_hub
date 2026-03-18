@@ -107,10 +107,10 @@ YktHub
 ## Demo
 
 ### Flight Subsidized Booking
-![Flight Demo](screenshots/02_flight_subsidized_booking_small.gif)
+![Flight Demo](screenshots/02_flight_subsidized_booking_tiny.gif)
 
 ### Medication OCR Navigator
-![Medication Demo](screenshots/01_medication_ocr_navigator_small.gif)
+![Medication Demo](screenshots/01_medication_ocr_navigator_tiny.gif)
 
 ---
 
